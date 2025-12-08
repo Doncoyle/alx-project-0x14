@@ -1,41 +1,46 @@
 import type React from "react"
-import type { FooterProps } from "@/interfaces"
+import Link from "next/link"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { faTwitter, faFacebook, faInstagram } from "@fortawesome/free-brands-svg-icons"
 
-export const Footer: React.FC<FooterProps> = ({ className = "" }) => {
+const Footer: React.FC = () => {
   return (
-    <footer className={`bg-gray-900 text-gray-300 py-8 mt-12 ${className}`}>
-      <div className="max-w-7xl mx-auto px-4">
-        <div className="grid grid-cols-3 gap-8 mb-8">
-          <div>
-            <h4 className="text-white font-semibold mb-4">CineSeek</h4>
-            <p className="text-sm text-gray-400">Discover and explore movies from around the world.</p>
-          </div>
-          <div>
-            <h4 className="text-white font-semibold mb-4">Quick Links</h4>
-            <ul className="space-y-2 text-sm text-gray-400">
-              <li>
-                <a href="/" className="hover:text-blue-400 transition-colors">
-                  Home
-                </a>
-              </li>
-              <li>
-                <a href="/movies" className="hover:text-blue-400 transition-colors">
-                  Movies
-                </a>
-              </li>
-            </ul>
-          </div>
-          <div>
-            <h4 className="text-white font-semibold mb-4">About</h4>
-            <p className="text-sm text-gray-400">Powered by MoviesDatabase API</p>
-          </div>
+    <footer className="bg-[#171D22] text-white py-10 px-6 md:px-10 lg:px-20">
+      <div className="flex flex-col md:flex-row justify-between items-center w-full">
+        <h2 className="text-xl md:text-4xl font-semibold mb-4 md:mb-0">
+          Cine<span className="text-[#E2D609]">Seek</span>
+        </h2>
+        <nav className="flex-1 flex justify-center space-x-6 mb-4 md:mb-0">
+          <Link href="/" className="hover:text-[#E2D609] text-lg transition-colors duration-300">
+            Home
+          </Link>
+          <Link href="/movies" className="hover:text-[#E2D609] text-lg transition-colors duration-300">
+            Movies
+          </Link>
+          <Link href="/contact" className="hover:text-[#E2D609] text-lg transition-colors duration-300">
+            Contact
+          </Link>
+          <Link href="/privacy" className="hover:text-[#E2D609] text-lg transition-colors duration-300">
+            Privacy Policy
+          </Link>
+        </nav>
+        <div className="flex space-x-4">
+          <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="hover:text-[#E2D609]">
+            <FontAwesomeIcon icon={faTwitter} size="lg" />
+          </a>
+          <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="hover:text-[#E2D609]">
+            <FontAwesomeIcon icon={faFacebook} size="lg" />
+          </a>
+          <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="hover:text-[#E2D609]">
+            <FontAwesomeIcon icon={faInstagram} size="lg" />
+          </a>
         </div>
-        <div className="border-t border-gray-700 pt-6">
-          <p className="text-center text-sm text-gray-400">
-            © {new Date().getFullYear()} CineSeek. All rights reserved.
-          </p>
-        </div>
+      </div>
+      <div className="mt-8 text-center text-sm text-gray-400">
+        <p>&copy; 2025 CineSeek. All rights reserved.</p>
       </div>
     </footer>
   )
 }
+
+export default Footer

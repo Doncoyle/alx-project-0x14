@@ -1,33 +1,43 @@
 import type React from "react"
 import Link from "next/link"
-import type { HeaderProps } from "@/interfaces"
+import Button from "../commons/Button"
 
-export const Header: React.FC<HeaderProps> = ({ currentPage = "home" }) => {
+const Header: React.FC = () => {
   return (
-    <header className="bg-gray-900 text-white shadow-lg">
-      <div className="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
-        <Link href="/" className="text-2xl font-bold text-blue-400">
-          CineSeek
-        </Link>
-        <nav className="flex gap-6 items-center">
+    <header className="h-28 flex items-center bg-[#171D22] px-4 md:px-16 lg:px-44 text-white">
+      <div className="flex items-center justify-between w-full">
+        <h2 className="text-xl md:text-4xl font-semibold">
+          Cine<span className="text-[#E2D609]">Seek</span>
+        </h2>
+        <nav className="hidden md:flex flex-1 justify-center space-x-8">
           <Link
             href="/"
-            className={`transition-colors ${
-              currentPage === "home" ? "text-blue-400 font-semibold" : "text-gray-300 hover:text-white"
-            }`}
+            className="hover:text-[#E2D609] px-4 md:px-8 text-xl transition-colors duration-300 font-semibold"
           >
             Home
           </Link>
           <Link
             href="/movies"
-            className={`transition-colors ${
-              currentPage === "movies" ? "text-blue-400 font-semibold" : "text-gray-300 hover:text-white"
-            }`}
+            className="hover:text-[#E2D609] px-4 md:px-8 text-xl transition-colors duration-300 font-semibold"
           >
-            Explore Movies
+            Movies
+          </Link>
+          <Link
+            href="/contact"
+            className="hover:text-[#E2D609] px-4 md:px-8 text-xl transition-colors duration-300 font-semibold"
+          >
+            Contact
           </Link>
         </nav>
+        <div className="flex md:hidden">
+          <Button title="Sign in" />
+        </div>
+        <div className="hidden md:flex">
+          <Button title="Sign in" />
+        </div>
       </div>
     </header>
   )
 }
+
+export default Header

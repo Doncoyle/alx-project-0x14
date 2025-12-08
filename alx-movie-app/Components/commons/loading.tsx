@@ -1,20 +1,13 @@
 import type React from "react"
-import type { LoadingProps } from "@/interfaces"
-
-export const Loading: React.FC<LoadingProps> = ({ fullScreen = false }) => {
-  const spinnerElement = (
-    <div className="flex items-center justify-center gap-2">
-      <div className="w-3 h-3 bg-blue-600 rounded-full animate-bounce"></div>
-      <div className="w-3 h-3 bg-blue-600 rounded-full animate-bounce delay-100"></div>
-      <div className="w-3 h-3 bg-blue-600 rounded-full animate-bounce delay-200"></div>
+const Loading: React.FC = () => {
+  return (
+    <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
+      <div className="bg-white bg-opacity-10 backdrop-blur-md rounded-lg p-8 flex flex-col justify-center items-center">
+        <h1 className="text-4xl md:text-6xl font-semibold text-white mb-4 animate-pulse">Loading...</h1>
+        <p className="text-lg text-gray-300">Please wait, we&apos;re getting next set of movies ready for you.</p>
+      </div>
     </div>
   )
-
-  if (fullScreen) {
-    return (
-      <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">{spinnerElement}</div>
-    )
-  }
-
-  return spinnerElement
 }
+
+export default Loading
